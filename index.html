@@ -123,13 +123,13 @@
 
   /* Left half — deep black with diagonal stripes */
   .splash-left {
-    flex: 1;
+    flex: 0 0 42%;
     position: relative;
     background: linear-gradient(160deg, #1C3A2A 0%, #1A4A2E 100%);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 3vw 0 6vw;
+    justify-content: flex-start;
+    padding: 0 2vw 0 3vw;
     overflow: hidden;
   }
   .splash-left::before {
@@ -146,7 +146,8 @@
   .splash-copy {
     position: relative;
     z-index: 2;
-    max-width: 540px;
+    max-width: 500px;
+    width: 100%;
   }
 
   .splash-eyebrow {
@@ -241,13 +242,13 @@
 
   /* Right half — photo full bleed */
   .splash-right {
-    flex: 1;
+    flex: 0 0 58%;
     position: relative;
     overflow: hidden;
-    border-left: 6px solid var(--yellow);
+    border-left: none;
     background: #D6EFDB;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
   }
 
@@ -255,23 +256,27 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 8%;
     display: block;
-    animation: zoomIn 1.2s 0.2s both;
+    animation: zoomIn 1.4s 0.1s both;
     position: relative;
     z-index: 2;
+    transform-origin: center 20%;
   }
 
-  /* Subtle left-edge blend into dark left panel */
+  @keyframes zoomIn {
+    from { transform: scale(1.12); }
+    to   { transform: scale(1);    }
+  }
+
+  /* Left-edge blend: dark panel flows seamlessly into photo */
   .splash-right::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(17,17,17,0.35) 0%,
-      transparent 25%
-    );
+    background:
+      linear-gradient(to right, rgba(26,74,46,0.92) 0%, rgba(26,74,46,0.2) 22%, transparent 40%),
+      linear-gradient(to top,   rgba(26,74,46,0.5) 0%, transparent 35%);
     z-index: 3;
     pointer-events: none;
   }
@@ -976,6 +981,7 @@
   /* Splash left - forest gradient */
   .splash-left {
     background: linear-gradient(160deg, #1C3A2A 0%, #1A4A2E 60%, #163D25 100%) !important;
+    padding: 0 2vw 0 3vw !important;
   }
   /* Splash left diagonal stripe */
   .splash-left::before {
@@ -1043,6 +1049,88 @@
   ::-webkit-scrollbar-track { background: #EAF4E8; }
   ::-webkit-scrollbar-thumb { background: #2A8C4A; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #5BB8E8; }
+
+
+  /* ── SPLASH FACE-IMPACT REFINEMENTS ── */
+
+  /* Shrink title slightly so it doesn't compete with the face */
+  .splash-title {
+    font-size: clamp(4rem, 7.5vw, 8rem) !important;
+  }
+
+  /* Tight left padding on copy so it truly hugs the left edge */
+  .splash-copy {
+    padding-left: 0 !important;
+  }
+
+  /* Eyebrow badge flush left */
+  .splash-eyebrow {
+    margin-left: 0 !important;
+  }
+
+  /* A thin sky-blue vertical accent bar on the far left of the splash */
+  .splash-left::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, #5BB8E8 0%, #2A8C4A 50%, #5BB8E8 100%);
+    z-index: 3;
+  }
+
+  /* Photo: slight scale-up on hover for breathing life */
+  .splash-photo {
+    transition: transform 6s ease;
+  }
+  #splash:hover .splash-photo {
+    transform: scale(1.04);
+    transform-origin: center 20%;
+  }
+
+  /* Vignette around edges of photo for cinema effect */
+  .splash-right::before {
+    background-image:
+      radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(26,74,46,0.18) 100%),
+      radial-gradient(circle, rgba(28,58,42,0.07) 1px, transparent 1px) !important;
+    background-size: auto, 12px 12px !important;
+    z-index: 4 !important;
+  }
+
+  /* Sports pill: position it right at the bottom edge of photo */
+  .splash-sports-pill {
+    bottom: 1.8rem !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 1.5px !important;
+    padding: 6px 14px !important;
+  }
+
+  /* Tag badge rotated stamp on photo */
+  .splash-tag-badge {
+    top: 1.8rem !important;
+    bottom: auto !important;
+    right: 1.8rem !important;
+    font-size: 1.1rem !important;
+    box-shadow: 5px 5px 0 #1C3A2A !important;
+  }
+
+  /* Stars: top-right, small, tight */
+  .splash-stars {
+    top: 1.8rem !important;
+    right: 10rem !important;
+    font-size: 0.7rem !important;
+  }
+  .splash-stars span {
+    font-size: 1.2rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* Mobile: stack photo on top, text below */
+  @media (max-width: 680px) {
+    #splash { flex-direction: column-reverse; }
+    .splash-right { flex: 0 0 60vh; border-left: none; border-bottom: 4px solid var(--yellow); }
+    .splash-left  { flex: 1; padding: 1.5rem; }
+    .splash-title { font-size: 3.5rem !important; }
+  }
 
 </style>
 </head>
