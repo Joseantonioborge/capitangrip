@@ -7,21 +7,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F4EFE0;
-    --red: #C8281C;
-    --red-dark: #9E1E12;
-    --yellow: #F5C518;
-    --yellow-dark: #D4A800;
-    --black: #111111;
-    --white: #FAFAFA;
-    --panel-border: 4px solid #111;
-    --shadow: 6px 6px 0px #111;
-    --shadow-lg: 10px 10px 0px #111;
+    --cream: #EAF4E8;          /* soft mint-green page bg */
+    --red: #2A8C4A;            /* forest green → main accent */
+    --red-dark: #1D6535;       /* deep forest → hover states */
+    --yellow: #5BB8E8;         /* sky blue → highlights & badges */
+    --yellow-dark: #3A9FD4;    /* deeper sky blue */
+    --black: #1C3A2A;          /* dark forest → text, borders, nav */
+    --white: #F5FBF4;          /* near white with green tint */
+    --panel-border: 4px solid #1C3A2A;
+    --shadow: 6px 6px 0px #1C3A2A;
+    --shadow-lg: 10px 10px 0px #1C3A2A;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Oswald', sans-serif;
-    background-color: var(--cream);
+    background: linear-gradient(180deg, #EAF4E8 0%, #E0F0E8 50%, #EAF4E8 100%);
     color: var(--black);
     overflow-x: hidden;
   }
@@ -29,7 +29,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle, #00000008 1px, transparent 1px);
+    background-image: radial-gradient(circle, #1C3A2A10 1px, transparent 1px);
     background-size: 16px 16px;
     pointer-events: none;
     z-index: 0;
@@ -83,15 +83,15 @@
 
   /* ── ANNOUNCEMENT BAR ── */
   .announce-bar {
-    background: var(--yellow);
-    border-bottom: 3px solid var(--black);
+    background: #1C3A2A;
+    border-bottom: 3px solid var(--yellow);
     padding: 7px;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     font-size: 0.78rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--black);
+    color: #FFFFFF;
     overflow: hidden;
     position: fixed;
     top: 60px; left: 0; right: 0;
@@ -125,7 +125,7 @@
   .splash-left {
     flex: 1;
     position: relative;
-    background: var(--black);
+    background: linear-gradient(160deg, #1C3A2A 0%, #1A4A2E 100%);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -139,7 +139,7 @@
     background: repeating-linear-gradient(
       -55deg,
       transparent, transparent 60px,
-      rgba(245,197,24,0.06) 60px, rgba(245,197,24,0.06) 120px
+      rgba(91,184,232,0.08) 60px, rgba(91,184,232,0.08) 120px
     );
   }
 
@@ -161,7 +161,7 @@
     padding: 5px 14px;
     color: var(--black);
     margin-bottom: 1.5rem;
-    box-shadow: 4px 4px 0 var(--red);
+    box-shadow: 4px 4px 0 var(--red-dark);
     animation: fadeUp 0.7s 0.3s both;
   }
 
@@ -171,7 +171,7 @@
     line-height: 0.88;
     letter-spacing: 3px;
     color: var(--white);
-    text-shadow: 6px 6px 0 var(--red);
+    text-shadow: 5px 5px 0 #3A9FD4;
     margin-bottom: 0.4rem;
     animation: fadeUp 0.7s 0.5s both;
   }
@@ -245,7 +245,7 @@
     position: relative;
     overflow: hidden;
     border-left: 6px solid var(--yellow);
-    background: #F0EAD8;
+    background: #D6EFDB;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,7 +281,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(28,58,42,0.07) 1px, transparent 1px);
     background-size: 12px 12px;
     z-index: 4;
     pointer-events: none;
@@ -331,7 +331,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
-    background: var(--black);
+    background: #1C3A2A;
     color: var(--yellow);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -398,9 +398,9 @@
     font-size: clamp(2.2rem, 5vw, 4rem);
     letter-spacing: 2px;
     line-height: 1;
-    text-shadow: 4px 4px 0 var(--red);
+    text-shadow: 3px 3px 0 #3A9FD4;
   }
-  .section-dark .section-title { color: var(--yellow); text-shadow: 4px 4px 0 var(--red-dark); }
+  .section-dark .section-title { color: var(--yellow); text-shadow: 3px 3px 0 #5BB8E8; }
 
   /* ABOUT STRIP */
   .about-strip {
@@ -440,7 +440,7 @@
     letter-spacing: 3px;
     line-height: 0.9;
     color: var(--white);
-    text-shadow: 5px 5px 0 var(--black);
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.5);
     margin-bottom: 1rem;
   }
   .about-title span { color: var(--yellow); }
@@ -481,7 +481,7 @@
     line-height: 1.1;
   }
   .service-body { padding: 1.2rem 1.5rem; }
-  .service-body p { font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 1rem; font-weight: 400; }
+  .service-body p { font-size: 0.95rem; line-height: 1.6; color: #2D4A35; margin-bottom: 1rem; font-weight: 400; }
   .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
     font-family: 'Oswald', sans-serif;
@@ -492,6 +492,7 @@
     border: 2px solid var(--black);
     padding: 2px 8px;
     background: var(--yellow);
+    color: var(--white);
   }
 
   /* LESIONES TABS */
@@ -540,7 +541,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, #00000010 1px, transparent 1px);
+    background-image: radial-gradient(circle, #1C3A2A12 1px, transparent 1px);
     background-size: 10px 10px;
   }
   .injury-info h3 {
@@ -548,9 +549,9 @@
     font-size: 2rem;
     letter-spacing: 2px;
     margin-bottom: 0.8rem;
-    text-shadow: 3px 3px 0 var(--yellow);
+    text-shadow: 2px 2px 0 var(--yellow);
   }
-  .injury-info p { font-size: 0.92rem; color: #555; line-height: 1.6; margin-bottom: 1rem; font-weight: 400; }
+  .injury-info p { font-size: 0.92rem; color: #3D5A45; line-height: 1.6; margin-bottom: 1rem; font-weight: 400; }
   .injury-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   .injury-list li {
     font-size: 0.88rem;
@@ -558,7 +559,7 @@
     letter-spacing: 1px;
     padding-left: 1.5rem;
     position: relative;
-    color: #333;
+    color: #1C3A2A;
   }
   .injury-list li::before {
     content: '▶';
@@ -596,7 +597,7 @@
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    background: linear-gradient(135deg, #e8dfc8 0%, #d8cdb5 100%);
+    background: linear-gradient(135deg, #C8E8D4 0%, #B0D8C0 100%);
     border-bottom: var(--panel-border);
     position: relative;
     overflow: hidden;
@@ -605,12 +606,12 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, #00000010 1px, transparent 1px);
+    background-image: radial-gradient(circle, #1C3A2A12 1px, transparent 1px);
     background-size: 10px 10px;
   }
   .program-body { padding: 1rem 1.2rem; }
   .program-name { font-family: 'Bangers', cursive; font-size: 1.2rem; letter-spacing: 1px; line-height: 1.1; margin-bottom: 6px; }
-  .program-desc { font-size: 0.82rem; color: #555; line-height: 1.4; margin-bottom: 10px; font-weight: 400; }
+  .program-desc { font-size: 0.82rem; color: #3D5A45; line-height: 1.4; margin-bottom: 10px; font-weight: 400; }
   .program-label { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red); }
 
   /* TIPS */
@@ -637,7 +638,7 @@
   }
   .tip-icon { font-size: 2.5rem; margin-bottom: 1rem; }
   .tip-title { font-family: 'Bangers', cursive; font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.7rem; }
-  .tip-text { font-size: 0.9rem; color: #555; line-height: 1.6; font-weight: 400; }
+  .tip-text { font-size: 0.9rem; color: #3D5A45; line-height: 1.6; font-weight: 400; }
 
   /* TESTIMONIALS */
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -648,7 +649,7 @@
     padding: 2rem;
   }
   .testi-quote { font-family: 'Bangers', cursive; font-size: 5rem; line-height: 0.5; color: var(--yellow); margin-bottom: 1rem; display: block; }
-  .testi-text { font-size: 1rem; font-style: italic; line-height: 1.6; color: #333; margin-bottom: 1.5rem; font-weight: 400; }
+  .testi-text { font-size: 1rem; font-style: italic; line-height: 1.6; color: #1C3A2A; margin-bottom: 1.5rem; font-weight: 400; }
   .testi-author { display: flex; align-items: center; gap: 12px; }
   .testi-avatar {
     width: 44px; height: 44px;
@@ -660,7 +661,7 @@
   }
   .testi-name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; }
   .testi-sport { font-size: 0.75rem; color: var(--red); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-  .stars { color: var(--yellow); font-size: 1rem; }
+  .stars { color: #F4C542; font-size: 1rem; }
 
   /* CALLOUT */
   .callout-section {
@@ -685,7 +686,7 @@
     font-size: clamp(2rem, 5vw, 4rem);
     letter-spacing: 3px;
     color: var(--white);
-    text-shadow: 4px 4px 0 var(--black);
+    text-shadow: 3px 3px 0 #1C3A2A;
     margin-bottom: 1rem;
     line-height: 0.95;
     position: relative;
@@ -740,12 +741,12 @@
     font-size: 3.5rem;
     border-bottom: var(--panel-border);
     position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #f4efe0 0%, #e2d9c4 100%);
+    background: linear-gradient(135deg, #D6EFE0 0%, #C0E0CC 100%);
   }
   .product-img::before {
     content: '';
     position: absolute; inset: 0;
-    background-image: radial-gradient(circle, #00000012 1.5px, transparent 1.5px);
+    background-image: radial-gradient(circle, #1C3A2A15 1.5px, transparent 1.5px);
     background-size: 14px 14px;
   }
   .product-badge-new {
@@ -763,12 +764,12 @@
   .product-info { padding: 1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
   .product-category { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
   .product-name { font-family: 'Bangers', cursive; font-size: 1.2rem; letter-spacing: 1px; line-height: 1.1; margin-bottom: 8px; flex: 1; }
-  .product-desc { font-size: 0.82rem; color: #666; line-height: 1.5; margin-bottom: 12px; font-weight: 400; }
+  .product-desc { font-size: 0.82rem; color: #4D6A55; line-height: 1.5; margin-bottom: 12px; font-weight: 400; }
   .product-footer {
     display: flex; align-items: center; justify-content: space-between;
-    border-top: 2px solid #e0d8c8; padding-top: 12px; margin-top: auto;
+    border-top: 2px solid #C8E6CC; padding-top: 12px; margin-top: auto;
   }
-  .product-price { font-family: 'Bangers', cursive; font-size: 1.6rem; letter-spacing: 1px; color: var(--red); text-shadow: 2px 2px 0 #FFD700; }
+  .product-price { font-family: 'Bangers', cursive; font-size: 1.6rem; letter-spacing: 1px; color: var(--red); text-shadow: 2px 2px 0 #3A9FD4; }
   .product-old-price { font-family: 'Oswald', sans-serif; font-size: 0.8rem; color: #999; text-decoration: line-through; margin-left: 6px; }
   .btn-add {
     font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;
@@ -779,7 +780,7 @@
 
   /* STATS */
   .stats-banner { background: var(--black); border-top: var(--panel-border); border-bottom: var(--panel-border); display: flex; }
-  .stat-item { flex: 1; padding: 2rem 1.5rem; text-align: center; border-right: 2px solid #333; }
+  .stat-item { flex: 1; padding: 2rem 1.5rem; text-align: center; border-right: 2px solid #2D5A3E; }
   .stat-item:last-child { border-right: none; }
   .stat-num { font-family: 'Bangers', cursive; font-size: 3.2rem; letter-spacing: 2px; color: var(--yellow); text-shadow: 3px 3px 0 var(--red); line-height: 1; }
   .stat-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-top: 4px; }
@@ -788,15 +789,15 @@
   footer { background: var(--black); border-top: 4px solid var(--yellow); padding: 3rem 5vw 1.5rem; color: var(--white); }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
   .footer-brand { font-family: 'Bangers', cursive; font-size: 2.5rem; letter-spacing: 3px; color: var(--yellow); text-shadow: 3px 3px 0 var(--red); margin-bottom: 0.7rem; }
-  .footer-tagline { font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 1.5rem; max-width: 280px; font-weight: 400; }
+  .footer-tagline { font-size: 0.85rem; color: #7BB89A; line-height: 1.6; margin-bottom: 1.5rem; max-width: 280px; font-weight: 400; }
   .footer-social { display: flex; gap: 10px; }
   .social-btn { width: 38px; height: 38px; border: 2px solid #444; display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; transition: all 0.1s; text-decoration: none; color: var(--white); }
   .social-btn:hover { border-color: var(--yellow); color: var(--yellow); transform: translate(-2px,-2px); }
-  .footer-col-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 8px; }
+  .footer-col-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; border-bottom: 1px solid #2D5A3E; padding-bottom: 8px; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .footer-links a { color: #aaa; text-decoration: none; font-size: 0.88rem; font-weight: 400; transition: color 0.1s; }
+  .footer-links a { color: #A8D5B5; text-decoration: none; font-size: 0.88rem; font-weight: 400; transition: color 0.1s; }
   .footer-links a:hover { color: var(--yellow); }
-  .footer-bottom { border-top: 1px solid #333; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #666; font-weight: 400; }
+  .footer-bottom { border-top: 1px solid #2D5A3E; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: #4D6A55; font-weight: 400; }
   .footer-bottom span { font-family: 'Bangers', cursive; letter-spacing: 1px; color: var(--yellow); font-size: 0.9rem; }
 
   /* FLOATING CART */
@@ -804,7 +805,7 @@
   .cart-btn {
     width: 60px; height: 60px;
     background: var(--black); border: 3px solid var(--yellow);
-    box-shadow: 5px 5px 0 var(--red);
+    box-shadow: 5px 5px 0 var(--red-dark);
     display: flex; align-items: center; justify-content: center;
     font-size: 1.6rem; cursor: pointer; position: relative; transition: all 0.1s;
   }
@@ -868,6 +869,181 @@
     .stats-banner { flex-wrap: wrap; }
     .stat-item { min-width: 50%; border-bottom: 2px solid #333; }
   }
+
+  /* ── OUTDOOR PALETTE REFINEMENTS ── */
+
+  /* Subtle leaf-vein texture on page */
+  body {
+    background-image:
+      radial-gradient(ellipse at 20% 30%, rgba(42,140,74,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(91,184,232,0.07) 0%, transparent 50%);
+  }
+
+  /* Nav - forest deep with sky accent */
+  nav { background: linear-gradient(90deg, #1C3A2A 0%, #1A4A2E 100%); }
+
+  /* Announce bar: dark forest with sky-blue text */
+  .announce-bar { background: #1A4A2E !important; border-bottom: 3px solid #5BB8E8 !important; }
+  .announce-inner { color: #E0F8E8; }
+
+  /* Section alt: white with faint green tint */
+  .section-alt { background: #F2FBF4; }
+
+  /* Section dark: deep forest with subtle radial */
+  .section-dark {
+    background: radial-gradient(ellipse at 50% 0%, #1A4A2E 0%, #1C3A2A 70%) !important;
+  }
+
+  /* Stats banner: forest green gradient */
+  .stats-banner {
+    background: linear-gradient(90deg, #1A4A2E 0%, #1C3A2A 50%, #1A4A2E 100%);
+  }
+
+  /* Tag chips: sky blue bg white text */
+  .tag { background: #5BB8E8 !important; color: #fff !important; border-color: #1C3A2A !important; }
+
+  /* Section eyebrow chips */
+  .section-eyebrow {
+    background: linear-gradient(90deg, #5BB8E8, #3A9FD4) !important;
+    color: #fff !important;
+    border-color: #1C3A2A !important;
+  }
+
+  /* Hero badge */
+  .hero-badge {
+    background: linear-gradient(90deg, #5BB8E8, #3A9FD4);
+    color: #fff;
+    border-color: #1C3A2A;
+  }
+
+  /* Primary button: forest green */
+  .btn-primary {
+    background: #2A8C4A;
+    border-color: #1C3A2A;
+    box-shadow: 6px 6px 0 #1C3A2A;
+  }
+  .btn-primary:hover { background: #1D6535; }
+
+  /* Secondary button: sky blue */
+  .btn-secondary {
+    background: #5BB8E8;
+    color: #1C3A2A;
+    border-color: #1C3A2A;
+    box-shadow: 6px 6px 0 #1C3A2A;
+  }
+  .btn-secondary:hover { background: #3A9FD4; color: #fff; }
+
+  /* Service card tops */
+  .service-card-top { border-bottom: 4px solid #1C3A2A; }
+
+  /* Program cards on dark bg: light background */
+  .section-dark .program-card {
+    background: #F2FBF4;
+    border-color: #1C3A2A;
+  }
+  .section-dark .program-card .program-num {
+    background: #5BB8E8;
+    color: #fff;
+    border-color: #1C3A2A;
+  }
+  .section-dark .program-label { color: #5BB8E8 !important; }
+  .section-dark .btn-primary {
+    background: #5BB8E8 !important;
+    color: #1C3A2A !important;
+    border-color: #1C3A2A !important;
+    box-shadow: 4px 4px 0 #1C3A2A !important;
+  }
+  .section-dark .btn-primary:hover { background: #3A9FD4 !important; color: #fff !important; }
+
+  /* Product add button */
+  .btn-add { background: #1C3A2A !important; box-shadow: 3px 3px 0 #2A8C4A !important; }
+  .btn-add:hover { background: #2A8C4A !important; }
+
+  /* Category buttons */
+  .cat-btn:hover, .cat-btn.active { background: #2A8C4A !important; color: #fff !important; }
+
+  /* Testimonial cards */
+  .testi-card { background: #F2FBF4; }
+  .testi-quote { color: #5BB8E8 !important; }
+
+  /* Tip cards */
+  .tip-card { background: #F2FBF4; }
+  .tip-card::before { color: #5BB8E8 !important; }
+
+  /* Injury visual */
+  .injury-visual { background: linear-gradient(135deg, #D6EFE0 0%, #C0E4D0 100%); }
+
+  /* Splash left - forest gradient */
+  .splash-left {
+    background: linear-gradient(160deg, #1C3A2A 0%, #1A4A2E 60%, #163D25 100%) !important;
+  }
+  /* Splash left diagonal stripe */
+  .splash-left::before {
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent, transparent 60px,
+      rgba(91,184,232,0.07) 60px, rgba(91,184,232,0.07) 120px
+    ) !important;
+  }
+
+  /* Callout section: forest green */
+  .callout-section { background: linear-gradient(135deg, #2A8C4A 0%, #1D6535 100%) !important; }
+  .callout-section::before {
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 20px,
+      rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px
+    ) !important;
+  }
+
+  /* About strip: forest green */
+  .about-strip {
+    background: linear-gradient(135deg, #2A8C4A 0%, #1A4A2E 100%) !important;
+  }
+
+  /* Footer */
+  footer { background: linear-gradient(180deg, #1A4A2E 0%, #1C3A2A 100%); }
+  .footer-tagline { color: #8CC8A0 !important; }
+  .footer-col-title { color: #5BB8E8 !important; border-color: #2D5A3E !important; }
+  .footer-links a { color: #A8D5B5 !important; }
+  .footer-links a:hover { color: #5BB8E8 !important; }
+  .footer-brand { color: #5BB8E8 !important; text-shadow: 3px 3px 0 #2A8C4A !important; }
+  .footer-bottom { color: #6DA882 !important; }
+
+  /* Floating cart */
+  .cart-btn { background: #1C3A2A !important; border-color: #5BB8E8 !important; box-shadow: 5px 5px 0 #2A8C4A !important; }
+  .cart-btn:hover { background: #5BB8E8 !important; }
+  .cart-count { background: #2A8C4A !important; }
+
+  /* Splash badge and pill */
+  .splash-tag-badge { background: #5BB8E8 !important; color: #1C3A2A !important; border-color: #1C3A2A !important; box-shadow: 6px 6px 0 #1C3A2A !important; }
+  .splash-sports-pill { background: rgba(28,58,42,0.92) !important; border-color: #5BB8E8 !important; }
+  .splash-corner { border-color: transparent transparent #5BB8E8 transparent !important; }
+
+  /* Stars gold (not sky blue) */
+  .stars { color: #F4C542 !important; }
+
+  /* Nav CTA */
+  .nav-cta { background: #2A8C4A !important; border-color: #2A8C4A !important; }
+  .nav-cta:hover { background: #5BB8E8 !important; color: #1C3A2A !important; border-color: #5BB8E8 !important; }
+
+  /* Product prices */
+  .product-price { color: #2A8C4A !important; text-shadow: 1px 1px 0 #5BB8E8 !important; }
+  .product-category { color: #2A8C4A !important; }
+  .program-label { color: #2A8C4A !important; }
+
+  /* Injury list bullets */
+  .injury-list li::before { color: #2A8C4A !important; }
+  .injury-info h3 { text-shadow: 2px 2px 0 #C0E4D0 !important; }
+
+  /* Service body text */
+  .service-body p { color: #2D4A35 !important; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #EAF4E8; }
+  ::-webkit-scrollbar-thumb { background: #2A8C4A; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #5BB8E8; }
+
 </style>
 </head>
 <body>
@@ -986,22 +1162,22 @@
       <div class="service-tags"><span class="tag">Muñeca</span><span class="tag">Antebrazo</span><span class="tag">Dedos</span><span class="tag">Cuello</span></div></div>
     </div>
     <div class="service-card">
-      <div class="service-card-top" style="background:#1a1a1a;"><div class="service-icon">🩹</div><div class="service-title">Prevención de Lesiones</div></div>
+      <div class="service-card-top" style="background:#1C3A2A;"><div class="service-icon">🩹</div><div class="service-title">Prevención de Lesiones</div></div>
       <div class="service-body"><p>Protocolos preventivos con bandas elásticas, ejercicios isométricos y técnicas de calentamiento adaptadas a tu deporte.</p>
       <div class="service-tags"><span class="tag">Bandas Elásticas</span><span class="tag">Isometría</span><span class="tag">Calentamiento</span></div></div>
     </div>
     <div class="service-card">
-      <div class="service-card-top" style="background:#D4A800;"><div class="service-icon">🔄</div><div class="service-title" style="color:#111;text-shadow:none;">Recuperación Activa</div></div>
+      <div class="service-card-top" style="background:#3A9FD4;"><div class="service-icon">🔄</div><div class="service-title" style="color:#111;text-shadow:none;">Recuperación Activa</div></div>
       <div class="service-body"><p>Técnicas de recuperación post-partido, estiramientos guiados y protocolos para volver a la pista en el menor tiempo posible.</p>
       <div class="service-tags"><span class="tag">Post-Partido</span><span class="tag">Estiramientos</span><span class="tag">Movilidad</span></div></div>
     </div>
     <div class="service-card">
-      <div class="service-card-top" style="background:#2E6B3E;"><div class="service-icon">🧠</div><div class="service-title">Nutrición Deportiva</div></div>
+      <div class="service-card-top" style="background:#166534;"><div class="service-icon">🧠</div><div class="service-title">Nutrición Deportiva</div></div>
       <div class="service-body"><p>Barritas energéticas, hidratación y timing de comidas para el deportista de pádel y tenis.</p>
       <div class="service-tags"><span class="tag">Energía</span><span class="tag">Hidratación</span><span class="tag">Barritas</span></div></div>
     </div>
     <div class="service-card">
-      <div class="service-card-top" style="background:#5B2D8E;"><div class="service-icon">📱</div><div class="service-title">Rutinas en Casa</div></div>
+      <div class="service-card-top" style="background:#0E7490;"><div class="service-icon">📱</div><div class="service-title">Rutinas en Casa</div></div>
       <div class="service-body"><p>Ejercicios diseñados para practicar en cualquier lugar — solo bandas elásticas y una pelota.</p>
       <div class="service-tags"><span class="tag">Sin Gym</span><span class="tag">Banda Elástica</span><span class="tag">Pelota</span></div></div>
     </div>
@@ -1259,7 +1435,7 @@
     cartItems++;
     document.getElementById('cartCount').textContent = cartItems;
     btn.textContent = '✓ Añadido';
-    btn.style.background = '#2E6B3E';
+    btn.style.background = '#166534';
     setTimeout(() => { btn.textContent = '+ Añadir'; btn.style.background = ''; }, 1800);
     const cb = document.getElementById('cartBtn');
     cb.style.transform = 'translate(-4px,-4px) scale(1.2)';
