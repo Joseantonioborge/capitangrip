@@ -1105,7 +1105,7 @@
 
 <!-- Navigation -->
 <nav>
-  <a class="nav-logo" href="#">⚡ CAPITÁN GRIP</a>
+  <a class="nav-logo" href="#" onclick="event.preventDefault(); showSplash();">⚡ CAPITÁN GRIP</a>
   <ul class="nav-links">
     <li><a href="#about">Sobre Mí</a></li>
     <li><a href="#lesiones">Lesiones</a></li>
@@ -1428,6 +1428,19 @@
       splash.style.display = 'none';
       document.getElementById('main-site').classList.add('visible');
     }, 480);
+  }
+
+  function showSplash() {
+    // Scroll to top first
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Hide main site
+    document.getElementById('main-site').classList.remove('visible');
+    // Reset and show splash
+    const splash = document.getElementById('splash');
+    splash.classList.remove('exit');
+    splash.style.display = 'flex';
+    splash.style.opacity = '1';
+    splash.style.transform = 'scale(1)';
   }
 
   let cartItems = 0;
